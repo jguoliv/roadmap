@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoadMap</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Screen 1: Home (deal banner and category grid) -->
+  <section id="screen-home" class="screen">
+    <header class="app-header">
+      <h1 class="logo">
+        <img src="images/brand/roadmap-logo.png" alt="RoadMap">
+      </h1>
+    </header>
+
+    <div class="deals-container">
+      <div class="deals-track" id="dealsTrack">
+        <!-- Deal rendered by app.js -->
+      </div>
+    </div>
+
+    <nav class="category-grid" aria-label="Main dining categories">
+      <button type="button" class="category-tile" data-category="entrees">
+        <span class="tile-icon" aria-hidden="true">🌯</span>
+        <span class="tile-label">Entrees</span>
+      </button>
+
+      <button type="button" class="category-tile" data-category="sides">
+        <span class="tile-icon" aria-hidden="true">🍟</span>
+        <span class="tile-label">Sides</span>
+      </button>
+
+      <button type="button" class="category-tile" data-category="drinks">
+        <span class="tile-icon" aria-hidden="true">🥤</span>
+        <span class="tile-label">Drinks</span>
+      </button>
+
+      <button type="button" class="category-tile" data-category="sweets">
+        <span class="tile-icon" aria-hidden="true">🍩</span>
+        <span class="tile-label">Sweets</span>
+      </button>
+    </nav>
+  </section>
+
+  <!-- Screen 2: Carousel feed -->
+  <section id="screen-feed" class="screen hidden">
+    <header class="app-header">
+      <button type="button" class="back-btn" id="backToHomeBtn" aria-label="Back to home">&lt;</button>
+      <h1 class="logo">
+        <img src="images/brand/roadmap-logo.png" alt="RoadMap">
+      </h1>
+      <button type="button" class="filter-btn" id="openFilterBtn" aria-label="Open filter options">
+        <span class="filter-icon" aria-hidden="true">≡</span>
+      </button>
+    </header>
+
+    <nav class="category-pills" aria-label="Feed category navigation">
+      <button type="button" class="pill-btn active" data-category="entrees" aria-pressed="true">Entrees</button>
+      <button type="button" class="pill-btn" data-category="sides" aria-pressed="false">Sides</button>
+      <button type="button" class="pill-btn" data-category="drinks" aria-pressed="false">Drinks</button>
+      <button type="button" class="pill-btn" data-category="sweets" aria-pressed="false">Sweets</button>
+    </nav>
+
+    <div class="active-filters-bar" id="activeFilters">
+      <!-- Filter chips rendered by app.js -->
+    </div>
+
+    <main class="carousel-viewport" id="carouselViewport">
+      <article class="food-card" id="foodCard">
+        <div class="plate-row">
+          <div class="peek peek-left" id="peekLeft" aria-hidden="true">
+            <img alt="" class="peek-image" id="peekLeftImage">
+          </div>
+          <div class="plate-wrapper">
+            <img alt="" class="food-image" id="cardImage">
+          </div>
+          <div class="peek peek-right" id="peekRight" aria-hidden="true">
+            <img alt="" class="peek-image" id="peekRightImage">
+          </div>
+        </div>
+        <h2 class="food-title" id="cardTitle">Title</h2>
+        <p class="vendor-location" id="cardVendor">Find it at Vendor</p>
+        <p class="food-price" id="cardPrice">$0.00</p>
+        <button type="button" class="learn-more-btn" id="learnMoreBtn">Learn More</button>
+      </article>
+
+      <p class="empty-message hidden" id="emptyMessage">Nothing here yet. Try another category.</p>
+    </main>
+  </section>
+
+  <!-- Detail bottom sheet -->
+  <aside class="detail-sheet hidden" id="detailSheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-content">
+      <p class="sheet-description" id="detailDescription"></p>
+      <p class="sheet-calories" id="detailCalories"></p>
+      <p class="sheet-dietary" id="detailDietary"></p>
+      <div class="sheet-sizes" id="detailSizes"></div>
+    </div>
+  </aside>
+
+  <!-- Filter modal -->
+  <div class="modal-overlay hidden" id="filterModal">
+    <div class="modal-card" role="dialog" aria-labelledby="filterTitle">
+      <div class="modal-header">
+        <h3 id="filterTitle">Filter Options</h3>
+        <button type="button" class="close-modal-btn" id="closeFilterModal" aria-label="Close filter options">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label class="filter-option">
+          <input type="checkbox" id="filterVegetarian">
+          Vegetarian Only
+        </label>
+        <label class="filter-option">
+          <input type="checkbox" id="filterUnderFive">
+          Under $5.00
+        </label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="apply-filters-btn" id="applyFiltersBtn">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="foods.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
